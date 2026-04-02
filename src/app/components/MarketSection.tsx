@@ -18,7 +18,6 @@ export default function MarketSection() {
 
   return (
     <section id="why-now" className="relative py-32 px-6 overflow-hidden">
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/10 to-transparent pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -54,9 +53,19 @@ export default function MarketSection() {
             <motion.div
               key={comparison.label}
               className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr] gap-0 border-b last:border-b-0 border-border/70"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{
+                opacity: 0,
+                y: 30,
+                boxShadow: '0 0 0 rgba(234,88,12,0)',
+                backgroundColor: 'rgba(255,255,255,0)',
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                boxShadow: 'inset 0 1px 0 rgba(234,88,12,0.08), 0 16px 40px rgba(234,88,12,0.08)',
+                backgroundColor: 'rgba(234,88,12,0.03)',
+              }}
+              viewport={{ amount: 0.5 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
             >
               <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-border/70">

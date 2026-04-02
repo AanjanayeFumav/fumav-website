@@ -38,7 +38,6 @@ export default function FeaturesSection() {
 
   return (
     <section id="product" className="relative py-32 px-6">
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -58,11 +57,32 @@ export default function FeaturesSection() {
             <motion.div
               key={index}
               className="group relative p-10 bg-card/50 border border-border backdrop-blur-sm rounded-2xl hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{
+                opacity: 0,
+                y: 30,
+                borderColor: 'rgba(255,255,255,0.1)',
+                boxShadow: '0 0 0 rgba(234,88,12,0)',
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                borderColor: 'rgba(234,88,12,0.32)',
+                boxShadow: '0 24px 60px rgba(234,88,12,0.12)',
+              }}
+              viewport={{ amount: 0.55 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
             >
+              <motion.div
+                className="absolute inset-0 rounded-2xl pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ amount: 0.55 }}
+                transition={{ delay: index * 0.15 + 0.05, duration: 0.6 }}
+                style={{
+                  background:
+                    'radial-gradient(circle at 50% 18%, rgba(234,88,12,0.16), transparent 55%), linear-gradient(180deg, rgba(234,88,12,0.08), transparent 62%)',
+                }}
+              />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
               <div className="relative">

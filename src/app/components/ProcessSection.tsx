@@ -11,7 +11,6 @@ export default function ProcessSection() {
 
   return (
     <section id="how-it-works" className="relative py-32 px-6 overflow-hidden">
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -43,12 +42,33 @@ export default function ProcessSection() {
             <motion.div
               key={index}
               className="relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{
+                opacity: 0,
+                y: 30,
+                borderColor: 'rgba(255,255,255,0.1)',
+                boxShadow: '0 0 0 rgba(234,88,12,0)',
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                borderColor: 'rgba(234,88,12,0.28)',
+                boxShadow: '0 22px 56px rgba(234,88,12,0.11)',
+              }}
+              viewport={{ amount: 0.6 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
             >
               <div className="group bg-card/50 border border-border backdrop-blur-sm rounded-2xl p-8 hover:border-primary/50 hover:bg-card/70 transition-all duration-500 hover:-translate-y-2 h-full">
+                <motion.div
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: 0.6 }}
+                  transition={{ delay: index * 0.1 + 0.05, duration: 0.6 }}
+                  style={{
+                    background:
+                      'radial-gradient(circle at 50% 16%, rgba(234,88,12,0.14), transparent 58%), linear-gradient(180deg, rgba(234,88,12,0.06), transparent 68%)',
+                  }}
+                />
                 <div className="relative">
                   <div className="text-primary mb-6 relative" style={{ fontSize: '2.5rem', fontWeight: 700 }}>
                     <span className="relative z-10">{step.number}</span>
